@@ -1,8 +1,11 @@
 <?php
+require_once('includes/executeSQL.php');
+
 $link_css_login = "";
 require_once('includes/header.php');
 ?>
-<div id="carouselExampleIndicators" class="carousel slide">
+
+<div id="carouselExampleIndicators" class="container carousel slide">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -34,64 +37,53 @@ require_once('includes/header.php');
     </button>
 </div>
 
-<main class="container-fluid mt-3">
-    <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card mb-2" style="width: 100%;">
-                <img src="images/songs/cayvagio.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <a href="" class="text-decoration-none">Cây, lá và gió</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
+<main class=" mt-3">
 
-        <div class="col-sm-3">
-            <div class="card mb-2" style="width: 100%;">
-                <img src="images/songs/csmt.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <a href="" class="text-decoration-none">Cuộc sống mến thương</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
+    <?php
+    $categories = executeResult("SELECT * FROM `theloai`;");
+    $dem = 0;
+    foreach ($categories as $category) {
+        $articles = executeResult('SELECT baiviet.ma_bviet,baiviet.ten_bhat,baiviet.hinhanh FROM baiviet,theloai WHERE baiviet.ma_tloai=theloai.ma_tloai and theloai.ten_tloai ="' . $category["ten_tloai"] . '";');
+        if (count($articles) > 0) {
+            $dem++;
+            if ($dem % 2 == 0)
+                $background = "#421698d4";
+            else
+                $background = "";
+            ?>
 
-        <div class="col-sm-3">
-            <div class="card mb-2" style="width: 100%;">
-                <img src="images/songs//longme.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <a href="" class="text-decoration-none">Lòng mẹ</a>
-                    </h5>
+            <div class="category" style="background-color: <?= $background ?>;">
+                <h3 class="text-center text-uppercase">
+                    <?= $category["ten_tloai"] ?>
+                </h3>
+                <div class="row container">
+                    <?php
+                    foreach ($articles as $article) {
+                        $path_img = ($article["hinhanh"]=="")? "default.jpg" : $article['hinhanh'];
+                        ?>
+                        <div class="col-sm-3">
+                            <div class="card mb-2" style="width: 100%;">
+                                <img src="images/songs/<?= $path_img ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <a href="detail.php?id_article=<?= $article['ma_bviet'] ?>" class="text-decoration-none">
+                                            <?= $article["ten_bhat"] ?>
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
-        </div>
+            <?php
+        }
+    }
+    ?>
 
-        <div class="col-sm-3">
-            <div class="card mb-2" style="width: 100%;">
-                <img src="images/songs/phoipha.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <a href="" class="text-decoration-none">Phôi pha</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-sm-3">
-            <div class="card mb-2" style="width: 100%;">
-                <img src="images/songs/noitinhyeubatdau.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center my-title">
-                        <a href="" class="text-decoration-none">Nơi tình yêu bắt đầu</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
 </main>
 
 <?php

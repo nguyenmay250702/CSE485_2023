@@ -28,6 +28,9 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="user.php">Người dùng</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">

@@ -8,7 +8,7 @@ require_once('includes/header.php');
     <div class="d-flex justify-content-center h-100">
         <div class="card" style="height: auto;">
             <div class="card-header">
-                <h3>Login</h3>
+                <h3>register</h3>
                 <div class="d-flex justify-content-end social_icon">
                     <span><i class="fab fa-facebook-square"></i></span>
                     <span><i class="fab fa-google-plus-square"></i></span>
@@ -19,16 +19,12 @@ require_once('includes/header.php');
                 <form action="includes/execute_user.php" method="post">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="username" name="user" value="<?= $_COOKIE['tennguoidung'] ?? '' ?>">
+                        <input type="text" class="form-control" placeholder="username" name="user">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                        <input type="text" class="form-control" placeholder="password" name="pass" value="<?= $_COOKIE['matkhau'] ?? '' ?>">
-                    </div>
-
-                    <div class="row align-items-center remember">
-                        <input type="checkbox" name="save_pass" value="" <?php if(isset($_COOKIE['tennguoidung'])) echo 'checked'?> >Remember Me
+                        <input type="text" class="form-control" placeholder="password" name="pass">
                     </div>
 
                     <div class="row" style="color: #ab0000; font-size: 12px; margin:10px;font-style: italic;">
@@ -36,16 +32,13 @@ require_once('includes/header.php');
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" name="btn" value="login" class="btn float-end login_btn">
+                        <input type="submit" name="btn" value="register" class="btn float-end login_btn">
                     </div>
                 </form>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center ">
-                    Don't have an account?<a href="register.php" class="text-warning text-decoration-none"> Sign Up</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#" class="text-warning text-decoration-none">Forgot your password?</a>
+                    Don't have an account?<a href="login.php" class="text-warning text-decoration-none"> Login</a>
                 </div>
             </div>
         </div>
