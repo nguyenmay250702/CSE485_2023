@@ -8,19 +8,32 @@ require_once('../includes/executeSQL.php');
         switch($btn){
             case 'Thêm':
                 if(isset($_POST['ten_tloai']) && $_POST['ten_tloai'] != ""){
-                    $ten = $_POST['ten_tloai'];
-                    execute("INSERT INTO theloai (ten_tloai) VALUES('$ten')");
+                    $ten_tloai = $_POST['ten_tloai'];
+                    execute("INSERT INTO theloai (ten_tloai) VALUES('$ten_tloai')");
                     header("location:category.php");
                 }
                 else{
-                    $mess = "tên thể loại không được bỏ trống";
+                    $mess = "Bạn chưa nhập đầy đủ thông tin";
                     header("location:add_category.php?mess=$mess");
                 }
                 break;
             case 'Lưu':
+                if(isset($_POST['ten_tloai']) && $_POST['ten_tloai'] != ""){
+                    $ten_tloai = $_POST['ten_tloai'];
+                    $ma_tloai = $_POST['ma_tloai'];
+                    execute("UPDATE theloai SET ten_tloai = '$ten_tloai' where ma_tloai=$ma_tloai");
+                    header("location:category.php");
+                }
+                else{
+                    $mess = "Bạn chưa nhập đầy đủ thông tin";
+                    header("location:edit_category.php?mess=$mess");
+                }
 
                 break;
-            case 'xóa':
+            case 'xoá':
+                //  $ma_tloai = $_GET['ma_tloai'];
+                //  execute("DELETE FROM theloai WHERE ma_tloai = $ma_tloai");
+                //  header("location:category.php");
 
                 break;
             

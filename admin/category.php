@@ -48,7 +48,7 @@ require_once('../includes/executeSQL.php');
                                 <a href="edit_category.php?id=<?=$category['ma_tloai']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="process_add_category.php?btn=xoa&id=<?=$category['ma_tloai']?>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="process_add_category.php?btn=xóa&id=<?=$category['ma_tloai']?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                             </tr>
                             <?php
