@@ -59,7 +59,7 @@ require_once('includes/header.php');
                 <div class="row container">
                     <?php
                     foreach ($articles as $article) {
-                        $path_img = ($article["hinhanh"]=="")? "default.jpg" : $article['hinhanh'];
+                        $path_img = ($article["hinhanh"] == "") ? "default.jpg" : $article['hinhanh'];
                         ?>
                         <div class="col-sm-3">
                             <div class="card mb-2" style="width: 100%;">
