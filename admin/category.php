@@ -2,24 +2,6 @@
 require_once('includes/header_admin.php');
 require_once('../includes/executeSQL.php');
 
-                // if(isset($_POST['them'])){
-                //     echo "<pre>";
-                //     print_r($_POST);
-                //     $ten_tloai = $_POST['ten_tloai'];
-                //     //  nếu k rỗng thì insert dữ liệu
-
-                //     if(!empty($ten_tloai)){
-                //         // insert dữ liệu
-                //         echo "<pre>";
-                //         print_r($_POST);
-                //         $add_categorys = execute("INSERT INTO `theloai` (`ten_tloai`) VALUES('$ten_tloai')");
-                //         echo "Thêm dữ liệu thành công";
-
-                //     }else{
-                //         echo "Bạn cần nhập đầy đủ thông tin";
-                //     }
-                // }
-
  ?>
 <main class="container mt-5 mb-5">
     <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->

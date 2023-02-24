@@ -30,11 +30,9 @@ require_once('../includes/executeSQL.php');
                 }
 
                 break;
-            case 'xoá':
-                //  $ma_tloai = $_GET['ma_tloai'];
-                //  execute("DELETE FROM theloai WHERE ma_tloai = $ma_tloai");
-                //  header("location:category.php");
-
+            case 'xóa':
+                execute("DELETE FROM theloai WHERE ma_tloai='".$_GET['id']."'");
+                 header("location:category.php");
                 break;
             
         };
