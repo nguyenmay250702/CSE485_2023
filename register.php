@@ -16,7 +16,7 @@ require_once('includes/header.php');
                 </div>
             </div>
             <div class="card-body">
-                <form action="includes/execute_user.php" method="post">
+                <form action="includes/process.php" method="post">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                         <input type="text" class="form-control" placeholder="username" name="user">

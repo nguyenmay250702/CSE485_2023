@@ -38,10 +38,10 @@
                             <a class="nav-link" href="./login.php">Đăng nhập</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
+                    <form method="post" action="index.php" class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                            aria-label="Search" name="nodungcantim">
+                        <button class="btn btn-outline-success" type="submit" name="search">Tìm</button>
                     </form>
                 </div>
             </div>

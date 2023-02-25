@@ -43,7 +43,14 @@ require_once('includes/header.php');
     $categories = executeResult("SELECT * FROM `theloai`;");
     $dem = 0;
     foreach ($categories as $category) {
-        $articles = executeResult('SELECT baiviet.ma_bviet,baiviet.ten_bhat,baiviet.hinhanh FROM baiviet,theloai WHERE baiviet.ma_tloai=theloai.ma_tloai and theloai.ten_tloai ="' . $category["ten_tloai"] . '";');
+        //khi chưa nhấn nút tìm kiếm
+        if (!isset($_POST['search'])) {
+            $sql = 'SELECT baiviet.ma_bviet,baiviet.ten_bhat,baiviet.hinhanh FROM baiviet,theloai WHERE baiviet.ma_tloai=theloai.ma_tloai and theloai.ten_tloai ="' . $category["ten_tloai"] . '";';
+        } else {
+            $nodungcantim = $_POST['nodungcantim'];
+            $sql = "SELECT baiviet.ma_bviet,baiviet.ten_bhat,baiviet.hinhanh FROM baiviet,theloai WHERE baiviet.ten_bhat LIKE '%$nodungcantim%' and baiviet.ma_tloai=theloai.ma_tloai and theloai.ten_tloai ='" . $category["ten_tloai"] . "';";
+        }
+        $articles = executeResult($sql);
         if (count($articles) > 0) {
             $dem++;
             if ($dem % 2 == 0)
@@ -82,8 +89,6 @@ require_once('includes/header.php');
         }
     }
     ?>
-
-
 </main>
 
 <?php
