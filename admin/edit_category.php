@@ -18,7 +18,7 @@ require_once('includes/header_admin.php');
                 </div>
 
                 <div class="form-group  float-end ">
-                    <input type="submit" value="Lưu lại" class="btn btn-success">
+                    <input type="submit"  name="btn" value="lưu" class="btn btn-success">
                     <a href="category.php" class="btn btn-warning ">Quay lại</a>
                 </div>
             </form>
