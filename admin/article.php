@@ -11,7 +11,7 @@ require_once('../includes/executeSQL.php');
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">MÃ BÀI VIẾT</th>
+                        <th scope="col">#</th>
                         <th scope="col">TÊN BÀI VIẾT(Tiêu đề)</th>
                         <th>SỬA</th>
                         <th>XÓA</th>
@@ -22,7 +22,6 @@ require_once('../includes/executeSQL.php');
                         $count = 1;
                         $articles = executeResult("select * from baiviet" ); //list = article = mảng 2 chiều
                         foreach($articles as $article){
-
                             ?>
                         <tr>
                         <th scope="row">

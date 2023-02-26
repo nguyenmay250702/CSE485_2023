@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                     <form method="post" action="index.php" class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm"
+                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm bài hát"
                             aria-label="Search" name="nodungcantim">
                         <button class="btn btn-outline-success" type="submit" name="search">Tìm</button>
                     </form>
