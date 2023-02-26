@@ -18,28 +18,31 @@ require_once('../includes/executeSQL.php');
                 </thead>
                 <tbody>
                     <?php
-                    $authors = executeResult("SELECT * FROM tacgia");//mảng 2 chiều
+                    $authors = executeResult("SELECT * FROM tacgia"); //mảng 2 chiều
                     $dem = 1;
-                    foreach($authors as $author){
+                    foreach ($authors as $author) {
                         ?>
                         <tr>
-                        <th scope="row"><?=$dem++ ?></th>
-                        <td><?= $author["ten_tgia"]  ?></td>
-                        <td>
-                            <img style="width:100px" src="../images/songs/<?= $author["hinh_tgia"];?>"></td>
-                        <td>
-                            <a href="edit_author.php?id=<?=$author["ma_tgia"]?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                        </td>
-                        <td>
-                            <a href="process_author.php?btn=xóa&id=<?=$author["ma_tgia"]?>"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-
-                    <?php
+                            <th scope="row">
+                                <?= $dem++ ?>
+                            </th>
+                            <td>
+                                <?= $author["ten_tgia"] ?>
+                            </td>
+                            <td><img src="../images/songs/<?= $author["hinh_tgia"] ?>" alt=""
+                                    style="width: 100px;"></td>
+                            <td>
+                                <a href="edit_author.php?id=<?= $author["ma_tgia"] ?>"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                            </td>
+                            <td>
+                                <a href="process_author.php?btn=xoa&id=<?= $author["ma_tgia"] ?>"><i
+                                        class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <?php
                     }
-
-                    ?>                   
-
+                    ?>
                 </tbody>
             </table>
         </div>
