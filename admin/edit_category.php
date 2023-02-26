@@ -27,6 +27,9 @@ if(isset($_GET['id']))
                     <input type="submit" name = "btn" value="Lưu" class="btn btn-success">
                     <a href="category.php" class="btn btn-warning ">Quay lại</a>
                 </div>
+                <div class="form-group" style="color:red">
+                    <?= $_GET['mess'] ?? ""?>
+                </div>
             </form>
         </div>
     </div>
